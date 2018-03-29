@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.a13_da.socialnetwork.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="Логин"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp" />
+
+            <EditText
+                android:id="@+id/login_login"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:textCursorDrawable="@android:color/black" />
+
+            <TextView
+                android:text="Пароль"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"/>
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:inputType="textPassword"
+                android:textCursorDrawable="@android:color/black" />
+
+            <Button
+                android:id="@+id/login_buttonlogin"
+                android:text="Войти"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:backgroundTint="#3cbbdb"
+                android:background="@drawable/round"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_marginVertical="10dp"/>
+            <Button
+                android:id="@+id/login_buttonregistration"
+                android:text="Регистрация"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:backgroundTint="#3cbbdb"
+                android:background="@drawable/round"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_marginVertical="10dp"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
