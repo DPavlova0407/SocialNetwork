@@ -8,92 +8,176 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/registration_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="20dp" />
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <TextView
-                android:text="Фамилия"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp" />
-            <EditText
-                android:id="@+id/registration_surname"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:textCursorDrawable="@android:color/black" />
+                <TextView
+                    android:id="@+id/registration_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="20dp"
+                    android:textColor="@android:color/holo_red_dark" />
 
-            <TextView
-                android:text="Имя"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp" />
-            <EditText
-                android:id="@+id/registration_name"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:textCursorDrawable="@android:color/black" />
+                <TextView
+                    android:text="Фамилия"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+                <EditText
+                    android:id="@+id/registration_surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black" />
 
-            <TextView
-                android:text="Электронная почта"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp" />
-            <EditText
-                android:id="@+id/registration_mail"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:textCursorDrawable="@android:color/black"
-                android:inputType="textEmailAddress"/>
+                <TextView
+                    android:text="Имя"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+                <EditText
+                    android:id="@+id/registration_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black"
+                    android:imeOptions="actionNext"/>
 
-            <TextView
-                android:text="Мобильный телефон"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp" />
-            <EditText
-                android:id="@+id/registration_phone"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                android:background="@android:drawable/editbox_background_normal"
-                android:textCursorDrawable="@android:color/black"
-                android:inputType="phone"
-                android:digits="0123456789"
-                android:maxLength="11"/>
+                <TextView
+                    android:text="Отчество"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+                <EditText
+                    android:id="@+id/registration_patronymic"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black" />
 
+                <TextView
+                    android:text="Электронная почта"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+                <EditText
+                    android:id="@+id/registration_mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black"
+                    android:inputType="textEmailAddress"/>
 
-            <Button
-                android:id="@+id/registration_buttonregistration"
-                android:text="Регистрация"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:backgroundTint="#3cbbdb"
-                android:background="@drawable/round"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                android:layout_marginVertical="10dp"/>
-        </LinearLayout>
+                <TextView
+                    android:text="Телефон"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+                <EditText
+                    android:id="@+id/registration_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black"
+                    android:inputType="phone"
+                    android:digits="0123456789"
+                    android:maxLength="11"
+                    android:imeOptions="actionGo"/>
+
+                <TextView
+                    android:text="Пол"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+                <EditText
+                    android:id="@+id/registration_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black" />
+
+                <TextView
+                    android:text="Придумайте логин"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+
+                <EditText
+                    android:id="@+id/registration_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:textCursorDrawable="@android:color/black" />
+
+                <TextView
+                    android:text="Придумайте пароль"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"/>
+
+                <TextView
+                    android:id="@+id/registration_password_error"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:textColor="@android:color/holo_red_dark" />
+                <EditText
+                    android:id="@+id/registration_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@android:color/black" />
+
+                <Button
+                    android:id="@+id/registration_buttonregistration"
+                    android:text="Регистрация"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:backgroundTint="#3cbbdb"
+                    android:background="@drawable/round"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="10dp"/>
+
+                <Button
+                    android:id="@+id/registration_buttonback"
+                    android:text="Вернуться"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:backgroundTint="#3cbbdb"
+                    android:background="@drawable/round"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="10dp"/>
+            </LinearLayout>
+        </ScrollView>
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>

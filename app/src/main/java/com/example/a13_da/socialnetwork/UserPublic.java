@@ -1,16 +1,10 @@
 package com.example.a13_da.socialnetwork;
 
-import android.graphics.drawable.Drawable;
-
 /**
- * Created by 13_da on 29.03.2018.
+ * Created by 13_da on 05.04.2018.
  */
 
-public class User {
-    private static User INSTANCE = new User();
-    private User(){}
-    public static User getInstance(){return INSTANCE;}
-
+public class UserPublic {
     private String name;
     private String surname;
     private String patronymic;
@@ -23,8 +17,6 @@ public class User {
 
     private int photo;
 
-    //TODO
-    //метод не должен быть public ?
     public void setUser(String name, String surname, String patronymic, String mail, String phone, String gender, String login, String password){
         this.name = name;
         this.surname = surname;

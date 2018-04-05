@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.a13_da.socialnetwork.ProfileActivity">
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
@@ -37,9 +36,9 @@
                         android:id="@+id/profile_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Вася Иванов"
                         android:textSize="10pt"/>
                     <TextView
+                        android:id="@+id/profile_age"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="24 года"/>
@@ -109,8 +108,58 @@
                             android:layout_marginVertical="10dp"
                             android:src="@android:drawable/ic_menu_call" />
                     </LinearLayout>
-
                 </FrameLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Пол"
+                    android:layout_marginVertical="10dp" />
+
+                <TextView
+                    android:id="@+id/profile_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Неопределен"
+                    android:layout_marginVertical="10dp"
+                    android:textSize="8pt"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Логин"
+                    android:layout_marginVertical="10dp" />
+
+                <TextView
+                    android:id="@+id/profile_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="login"
+                    android:layout_marginVertical="10dp"
+                    android:textSize="8pt"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Пароль"
+                    android:layout_marginVertical="10dp" />
+
+                <TextView
+                    android:id="@+id/profile_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="password"
+                    android:layout_marginVertical="10dp"
+                    android:textSize="8pt"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -130,7 +179,29 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray" />
+                <Button
+                    android:id="@+id/profile_buttonFriends"
+                    android:text="Друзья"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:backgroundTint="#3cbbdb"
+                    android:background="@drawable/round"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="10dp"/>
+                <Button
+                    android:id="@+id/profile_buttonExit"
+                    android:text="Выйти"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:backgroundTint="#3cbbdb"
+                    android:background="@drawable/round"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="10dp"/>
                 </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
