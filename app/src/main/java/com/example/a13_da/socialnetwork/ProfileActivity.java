@@ -10,21 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
-    private User user;
+    private User curUser = Session.getINSTANCE().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         ImageView image = findViewById(R.id.profile_image);
         image.setClipToOutline(true);
-
-        if (getIntent().hasExtra("user")){
-            String userStr = getIntent().getExtras().getString("user");
-            String[] parts = (userStr + '\n').split("\n");
-            user = User.getInstance();
-            user.setUser(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]);
-        }
 
         TextView name = findViewById(R.id.profile_name);
         TextView mail = findViewById(R.id.profile_mail);
@@ -33,12 +27,12 @@ public class ProfileActivity extends AppCompatActivity {
         TextView login = findViewById(R.id.profile_login);
         TextView password = findViewById(R.id.profile_password);
 
-        name.setText(user.getSurname() + " " + user.getName() + " " + user.getPatronymic());
-        mail.setText(user.getMail());
-        phone.setText(user.getPhone());
-        gender.setText(user.getGender());
-        login.setText(user.getLogin());
-        password.setText(user.getPassword());
+        name.setText(curUser.getSurname() + " " + curUser.getName() + " " + curUser.getPatronymic());
+        mail.setText(curUser.getMail());
+        phone.setText(curUser.getPhone());
+        gender.setText(curUser.getGender());
+        login.setText(curUser.getLogin());
+        password.setText(curUser.getPassword());
 
         Button friendsButton = findViewById(R.id.profile_buttonFriends);
         friendsButton.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +51,5 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

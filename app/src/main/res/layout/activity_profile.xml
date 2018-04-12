@@ -201,7 +201,7 @@
                     android:textColor="#ffffff"
                     android:textStyle="bold"
                     android:layout_marginVertical="10dp"/>
-                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

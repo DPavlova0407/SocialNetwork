@@ -7,10 +7,6 @@ import android.graphics.drawable.Drawable;
  */
 
 public class User {
-    private static User INSTANCE = new User();
-    private User(){}
-    public static User getInstance(){return INSTANCE;}
-
     private String name;
     private String surname;
     private String patronymic;
@@ -21,11 +17,9 @@ public class User {
     private String login;
     private String password;
 
-    private int photo;
+    //   private int photo;
 
-    //TODO
-    //метод не должен быть public ?
-    public void setUser(String name, String surname, String patronymic, String mail, String phone, String gender, String login, String password){
+    public User(String name, String surname, String patronymic, String mail, String phone, String gender, String login, String password){
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
@@ -68,9 +62,9 @@ public class User {
         return gender;
     }
 
-    public int getPhoto() {
+   /* public int getPhoto() {
         return photo;
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -81,7 +75,7 @@ public class User {
                 phone + '\n' +
                 gender + '\n' +
                 login + '\n' +
-                password + '\n' +
-                photo + '\n';
+                password + '\n'; /*+
+                photo + '\n';*/
     }
 }

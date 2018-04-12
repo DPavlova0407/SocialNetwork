@@ -15,27 +15,19 @@ import java.util.Map;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
-    private Map<String, User> users = new HashMap<>();
+    private Session session = Session.getINSTANCE();
+
     private TextView loginError;
     private TextView passwordError;
-    private User currentUser = User.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        User admin = User.getInstance();
-        admin.setUser("Admin", "Adminov", "Adminovich", "admin@gmail.com", "+79045867658", "Неопределен", "admin", "000");
-        users.put(admin.getLogin(), admin);
+        //Admin 000
+        session.addUser(session.getCurrentUser());
 
-        if (getIntent().hasExtra("user")){
-            String userStr = getIntent().getExtras().getString("user");
-            String[] parts = (userStr + '\n').split("\n");
-            User user = User.getInstance();
-            user.setUser(parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]);
-            users.put(user.getLogin(), user);
-        }
         loginError = findViewById(R.id.login_login_error);
         passwordError = findViewById(R.id.login_password_error);
 
@@ -51,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
                     loginError.setText("Логин не найден.");
                 }
                 else {
-                    currentUser = users.get(login);
-                    if (password.equals(currentUser.getPassword())) {
+                    session.setCurrentUser(session.getUsersMap().get(login));
+                    if (password.equals(session.getCurrentUser().getPassword())) {
                         Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                        intent.putExtra("user", currentUser.toString());
+                        //intent.putExtra("user", session.getCurrentUser().toString());
                         startActivity(intent);
                     }
                     else {
@@ -74,6 +66,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     private boolean userFind(String login){
-        return users.containsKey(login);
+        return Session.getINSTANCE().getUsersMap().containsKey(login);
     }
 }

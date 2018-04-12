@@ -8,11 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FriendsActivity extends AppCompatActivity {
-    private List<UserPublic> users = new ArrayList<>();
+    private Session session = Session.getINSTANCE();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +19,10 @@ public class FriendsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friends);
 
         initUsers();
-        //TODO
-        // Исправить. Высота текстового поля одного пользователя равна высоте окна.
         RecyclerView recyclerView = findViewById(R.id.friends_list);
 
-        DataAdapter adapter = new DataAdapter(this, users);
-        recyclerView.setAdapter(adapter);
-
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(new DataAdapter(this, session.getFemale(), session.getMale(), session.getNot_defined(), session.getUsersList()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         Button buttonBack = findViewById(R.id.friends_buttonBack);
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -39,54 +33,18 @@ public class FriendsActivity extends AppCompatActivity {
             }
         });
     }
-
     private void initUsers(){
-        UserPublic user1 = new UserPublic();
-        user1.setUser("Саша", "Петруненко", "", "sa@mail.ru", "+78936758475", "", "log1", "pas1");
-        users.add(user1);
-
-        UserPublic user2 = new UserPublic();
-        user2.setUser("Паша", "Иванов", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1");
-        users.add(user2);
-
-        UserPublic user3 = new UserPublic();
-        user3.setUser("Таня", "Иванова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1");
-        users.add(user3);
-
-        UserPublic user4 = new UserPublic();
-        user4.setUser("Олег", "Кузнецов", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1");
-        users.add(user4);
-
-        UserPublic user5 = new UserPublic();
-        user5.setUser("Игорь", "Мартынов", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1");
-        users.add(user5);
-
-        UserPublic user6 = new UserPublic();
-        user6.setUser("Егор", "Щукин", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1");
-        users.add(user6);
-
-        UserPublic user7 = new UserPublic();
-        user7.setUser("Маша", "Крапцова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1");
-        users.add(user7);
-
-        UserPublic user8 = new UserPublic();
-        user8.setUser("Валерия", "Кузнецова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1");
-        users.add(user8);
-
-        UserPublic user9 = new UserPublic();
-        user9.setUser("Нина", "Белова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1");
-        users.add(user9);
-
-        UserPublic user10 = new UserPublic();
-        user10.setUser("Женя", "Мартыненко", "", "pi@mail.ru", "+78936758475", "", "log1", "pas1");
-        users.add(user10);
-
-        UserPublic user11 = new UserPublic();
-        user11.setUser("Ярослав", "Слуцкий", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1");
-        users.add(user11);
-
-        UserPublic user12 = new UserPublic();
-        user12.setUser("Катя", "Янина", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1");
-        users.add(user12);
+        session.addUser(new User("Саша", "Петруненко", "", "sa@mail.ru", "+78936758475", "", "log1", "pas1"));
+        session.addUser(new User("Паша", "Иванов", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1"));
+        session.addUser(new User("Таня", "Иванова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1"));
+        session.addUser(new User("Олег", "Кузнецов", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1"));
+        session.addUser(new User("Игорь", "Мартынов", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1"));
+        session.addUser(new User("Егор", "Щукин", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1"));
+        session.addUser(new User("Маша", "Крапцова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1"));
+        session.addUser(new User("Валерия", "Кузнецова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1"));
+        session.addUser(new User("Нина", "Белова", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1"));
+        session.addUser(new User("Женя", "Мартыненко", "", "pi@mail.ru", "+78936758475", "", "log1", "pas1"));
+        session.addUser(new User("Ярослав", "Слуцкий", "", "pi@mail.ru", "+78936758475", "Мужской", "log1", "pas1"));
+        session.addUser(new User("Катя", "Янина", "", "pi@mail.ru", "+78936758475", "Женский", "log1", "pas1"));
     }
 }

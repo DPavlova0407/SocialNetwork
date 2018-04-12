@@ -22,6 +22,7 @@ import java.util.Locale;
 import static android.text.TextUtils.isEmpty;
 
 public class RegistrationActivity extends AppCompatActivity {
+    private Session session = Session.getINSTANCE();
 
     private String genderStr = "Неопределен";
     private TextView log;
@@ -30,7 +31,6 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        EditText phone = findViewById(R.id.registration_phone);
 
         Button buttonregistration = findViewById(R.id.registration_buttonregistration);
         buttonregistration.setOnClickListener(new View.OnClickListener() {
@@ -84,10 +84,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     if (!checkPassword(passwordStr))
                         passwordError.setText("Пароль не достаточно сложный");
                     else {
-                        User user = User.getInstance();
-                        user.setUser(nameStr, surnameStr, patronymicStr, mailStr, phoneStr, genderStr, loginStr, passwordStr);
+                        User user = new User(nameStr, surnameStr, patronymicStr, mailStr, phoneStr, genderStr, loginStr, passwordStr);
+                        session.addUser(user);
                         Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
-                        intent.putExtra("user", user.toString());
                         startActivity(intent);
                     }
                 }
@@ -103,7 +102,6 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-
     //TODO
     //переделать порверку пароля
     private boolean checkPassword(String password){
